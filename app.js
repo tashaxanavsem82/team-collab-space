@@ -27,4 +27,5 @@ socket.on('chat message', (msg) => {
     const messageElement = document.createElement('div');
     messageElement.textContent = msg;
     messagesDiv.appendChild(messageElement);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to the bottom of messagesDiv
 });
