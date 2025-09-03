@@ -11,9 +11,11 @@ function handleKeyPress(event) {
 }
 
 function sendMessage() {
-    const message = messageInput.value;
-    socket.emit('chat message', message);
-    messageInput.value = '';
+    const message = messageInput.value.trim();
+    if (message) {
+        socket.emit('chat message', message);
+        messageInput.value = '';
+    }
 }
 
 socket.on('chat message', (msg) => {
