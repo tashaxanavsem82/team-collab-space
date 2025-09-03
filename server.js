@@ -10,6 +10,11 @@ const io = socketIo(server);
 app.use(cors());
 app.use(express.json());
 
+app.use((req, res, next) => {
+    console.log(`Received ${req.method} request for '${req.url}'`);
+    next();
+});
+
 app.get('/', (req, res) => {
     res.send('Welcome to Team Collab Space API!');
 });
